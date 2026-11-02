@@ -59,7 +59,7 @@ module.exports = {
 
             string += "\n### Voting ends in <t:"+Math.round(voted.voting.enddate/1000)+":R>"
 
-            Embed.setAuthor({ name: interaction.user.globalName + " has started the election"}) 
+            Embed.setAuthor({ name: interaction.user.globalName + " has started the election", iconURL: interaction.member.displayAvatarURL()}) 
             .setDescription(string)
             .setColor(0x008000)
         } else {
@@ -105,7 +105,7 @@ module.exports = {
                 string += "### **"+winner+"** has been elected!"
             }
 
-            Embed.setAuthor({ name: interaction.user.globalName + " has ended the election"})
+            Embed.setAuthor({ name: interaction.user.globalName + " has ended the election", iconURL: interaction.member.displayAvatarURL()})
             .setDescription(string)
             .setColor(0xff0000)
             voted.voting.on=false

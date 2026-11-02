@@ -6,7 +6,7 @@ const { logError } = require("./src/utils/functions");
 require("dotenv").config();
 
 const commands = [];
-
+/* Not in use
 const contextMenuCommandsPath = path.join(__dirname, "src", "commands", "context_menu");
 const contextMenuCommandFiles = fs.readdirSync(contextMenuCommandsPath).filter((file) => file.endsWith(".js"));
 
@@ -25,7 +25,7 @@ for (const file of contextMenuCommandFiles) {
             console.log(chalk.yellowBright(`[WARNING] The command at "${filePath}" is missing a required "execute" property.`));
     }
 }
-
+*/
 const slashCommandsPath = path.join(__dirname, "src", "commands", "slash");
 const slashCommandFiles = fs.readdirSync(slashCommandsPath).filter((file) => file.endsWith(".js"));
 

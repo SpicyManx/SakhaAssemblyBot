@@ -17,6 +17,11 @@ module.exports = {
             .setAutocomplete(true)
     ),
     async execute(client, interaction) {
+        if(!interaction.member.toJSON().roles.includes("1494640457022705704")){
+            await interaction.reply({ content:"You cannot vote as non-citizen", flags: Discord.MessageFlags.Ephemeral});
+            return;
+        }
+
         const parsed = JSON.parse(fs.readFileSync(votedPath, 'utf8'));
 
         if(!parsed.voting.on){
@@ -55,6 +60,10 @@ module.exports = {
         await interaction.reply({ content: "You voted for "+interaction.options.getString("party"), flags: Discord.MessageFlags.Ephemeral});
     },
     async autocomplete(interaction) {
+        if(!interaction.member.toJSON().roles.includes("1494640457022705704")){
+            return;
+        }
+
 		const focusedValue = interaction.options.getFocused();
         const choices = [];
         const parsedParties = JSON.parse(fs.readFileSync(partiesPath, 'utf8'));
